@@ -1,117 +1,107 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/hacker.html b/hacker.html
-new file mode 100644
-index 0000000000000000000000000000000000000000..ca9f314e4c142cd3683d98715a7650b0dd15733b
---- /dev/null
-+++ b/hacker.html
-@@ -0,0 +1,107 @@
-+<!DOCTYPE html>
-+<html lang="en">
-+<head>
-+  <meta charset="UTF-8">
-+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-+  <title>Abdur Rahman Omi | Hacker Typer</title>
-+  <link rel="stylesheet" href="css/style.css">
-+</head>
-+<body class="hacker-page">
-+
-+<a href="index.html" class="back-btn hacker-back">⬅ Back</a>
-+
-+<!-- Loader -->
-+<div id="loader">
-+  <div class="loader-box hacker-loader-box">
-+    <div class="spinner hacker-spinner"></div>
-+    <p>INITIALIZING SECURE TERMINAL...</p>
-+  </div>
-+</div>
-+
-+<!-- Dark / Light Mode Toggle -->
-+<div id="theme-toggle">🌙</div>
-+
-+<!-- Scroll to Top -->
-+<button id="scrollTop">↑</button>
-+
-+<main class="hacker-shell fade">
-+  <div class="matrix-rain" aria-hidden="true">
-+    <span>01001010</span>
-+    <span>ACCESS</span>
-+    <span>101101</span>
-+    <span>ROOT</span>
-+    <span>CYBER</span>
-+    <span>01101001</span>
-+    <span>TRACE</span>
-+    <span>001101</span>
-+  </div>
-+
-+  <section class="hacker-hero">
-+    <p class="hacker-kicker">HTML + CSS Cyber Lab</p>
-+    <h1>Hacker Typer</h1>
-+    <p>Keyboard চাপলেই স্ক্রিনে cinematic hacking code type হবে। Phone আর PC—দুই জায়গাতেই clean, smooth আর animated look.</p>
-+    <div class="hacker-actions">
-+      <button id="startHack" type="button">Start Typing</button>
-+      <button id="clearHack" type="button" class="ghost-btn">Clear</button>
-+    </div>
-+  </section>
-+
-+  <section class="terminal-card" aria-label="Interactive hacker typer terminal">
-+    <div class="terminal-topbar">
-+      <div class="terminal-dots" aria-hidden="true">
-+        <span></span>
-+        <span></span>
-+        <span></span>
-+      </div>
-+      <p>omi@cyber-lab: ~/secure-terminal</p>
-+      <strong>ONLINE</strong>
-+    </div>
-+
-+    <div class="terminal-stats">
-+      <div>
-+        <span>Firewall</span>
-+        <strong>97%</strong>
-+      </div>
-+      <div>
-+        <span>Signal</span>
-+        <strong>Encrypted</strong>
-+      </div>
-+      <div>
-+        <span>Status</span>
-+        <strong>Stealth</strong>
-+      </div>
-+    </div>
-+
-+    <pre id="hackerOutput" class="hacker-output" tabindex="0"><code>// Click the terminal or press any key to begin...
-+// প্রত্যেক key press এ নতুন hacker line generate হবে.
-+</code></pre>
-+
-+    <div class="progress-wrap" aria-hidden="true">
-+      <span></span>
-+    </div>
-+  </section>
-+
-+  <section class="hacker-tips">
-+    <article>
-+      <h2>⚡ Fast Animation</h2>
-+      <p>Glowing text, scanlines, pulse effects এবং floating matrix rain page-টাকে hacker vibe দেয়।</p>
-+    </article>
-+    <article>
-+      <h2>📱 Responsive</h2>
-+      <p>Mobile screen এ buttons stack হবে, terminal width adjust হবে, text readable থাকবে।</p>
-+    </article>
-+    <article>
-+      <h2>⌨️ Interactive</h2>
-+      <p>Keyboard বা Start button use করে fake code typing effect enjoy করা যাবে।</p>
-+    </article>
-+  </section>
-+</main>
-+
-+<!-- Footer -->
-+<footer class="fade footer hacker-footer">
-+  <p>© 2026 Omi | Secure Mode Active</p>
-+</footer>
-+
-+<script src="js/script.js"></script>
-+</body>
-+</html>
- 
-EOF
-)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdur Rahman Omi | Hacker Typer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="hacker-page">
+
+<a href="index.html" class="back-btn hacker-back">⬅ Back</a>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="loader-box hacker-loader-box">
+    <div class="spinner hacker-spinner"></div>
+    <p>INITIALIZING SECURE TERMINAL...</p>
+  </div>
+</div>
+
+<!-- Dark / Light Mode Toggle -->
+<div id="theme-toggle">🌙</div>
+
+<!-- Scroll to Top -->
+<button id="scrollTop">↑</button>
+
+<main class="hacker-shell fade">
+  <div class="matrix-rain" aria-hidden="true">
+    <span>01001010</span>
+    <span>ACCESS</span>
+    <span>101101</span>
+    <span>ROOT</span>
+    <span>CYBER</span>
+    <span>01101001</span>
+    <span>TRACE</span>
+    <span>001101</span>
+  </div>
+
+  <section class="hacker-hero">
+    <p class="hacker-kicker">HTML + CSS Cyber Lab</p>
+    <h1>Hacker Typer</h1>
+    <p>Keyboard চাপলেই স্ক্রিনে cinematic hacking code type হবে। Phone আর PC—দুই জায়গাতেই clean, smooth আর animated look.</p>
+    <div class="hacker-actions">
+      <button id="startHack" type="button">Start Typing</button>
+      <button id="clearHack" type="button" class="ghost-btn">Clear</button>
+    </div>
+  </section>
+
+  <section class="terminal-card" aria-label="Interactive hacker typer terminal">
+    <div class="terminal-topbar">
+      <div class="terminal-dots" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p>omi@cyber-lab: ~/secure-terminal</p>
+      <strong>ONLINE</strong>
+    </div>
+
+    <div class="terminal-stats">
+      <div>
+        <span>Firewall</span>
+        <strong>97%</strong>
+      </div>
+      <div>
+        <span>Signal</span>
+        <strong>Encrypted</strong>
+      </div>
+      <div>
+        <span>Status</span>
+        <strong>Stealth</strong>
+      </div>
+    </div>
+
+    <pre id="hackerOutput" class="hacker-output" tabindex="0"><code>// Click the terminal or press any key to begin...
+// প্রত্যেক key press এ নতুন hacker line generate হবে.
+</code></pre>
+
+    <div class="progress-wrap" aria-hidden="true">
+      <span></span>
+    </div>
+  </section>
+
+  <section class="hacker-tips">
+    <article>
+      <h2>⚡ Fast Animation</h2>
+      <p>Glowing text, scanlines, pulse effects এবং floating matrix rain page-টাকে hacker vibe দেয়।</p>
+    </article>
+    <article>
+      <h2>📱 Responsive</h2>
+      <p>Mobile screen এ buttons stack হবে, terminal width adjust হবে, text readable থাকবে।</p>
+    </article>
+    <article>
+      <h2>⌨️ Interactive</h2>
+      <p>Keyboard বা Start button use করে fake code typing effect enjoy করা যাবে।</p>
+    </article>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="fade footer hacker-footer">
+  <p>© 2026 Omi | Secure Mode Active</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
