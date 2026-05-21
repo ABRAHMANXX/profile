@@ -1,336 +1,376 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+/* =====================
+   Global Reset
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body{
-  font-family:Arial, sans-serif;
+body {
+  background: linear-gradient(135deg, #0b0000, #1a0000);
+  color: #f2f2f2;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
 }
 
-.hacker-page{
-  background:#020b05;
-  color:#00ff88;
-  min-height:100vh;
-  overflow-x:hidden;
+/* =====================
+   Anime Background Particles
+===================== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,77,77,0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: moveStars 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Loader */
-
-#loader{
-  position:fixed;
-  inset:0;
-  background:#000;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
+@keyframes moveStars {
+  0% {background-position:0 0;}
+  100% {background-position:800px 800px;}
 }
 
-.loader-box{
+/* =====================
+   Loader
+===================== */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #1a0000, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease;
+}
+.loader-box {text-align:center;color:#ffcccc;}
+.spinner {width:70px;height:70px;border:5px solid rgba(255,255,255,0.2);border-top:5px solid #ff4d4d;border-radius:50%;animation:spin 1s linear infinite;}
+@keyframes spin {to{transform:rotate(360deg);}}
+
+/* =====================
+   Header
+===================== */
+header{
   text-align:center;
+  padding:110px 20px 60px;
+  background:linear-gradient(rgba(10,0,0,0.75),rgba(10,0,0,0.9)),url("../img/cover.jpg");
+  background-size:cover;
+  background-position:center;
+  border-bottom:1px solid #550000;
+  position: relative;
+  overflow: hidden;
 }
 
-.spinner{
-  width:70px;
-  height:70px;
-  border:5px solid #033;
-  border-top:5px solid #00ff88;
-  border-radius:50%;
-  margin:auto;
-  animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
-}
-
-/* Toggle */
-
-#theme-toggle{
-  position:fixed;
-  top:20px;
-  right:20px;
-  background:#000;
-  border:1px solid #00ff88;
-  color:#00ff88;
-  padding:10px 15px;
-  border-radius:10px;
-  cursor:pointer;
-  z-index:1000;
-}
-
-/* Scroll Top */
-
-#scrollTop{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:45px;
-  height:45px;
-  border:none;
-  border-radius:50%;
-  background:#00ff88;
-  color:#000;
-  font-size:20px;
-  cursor:pointer;
-  display:none;
-  z-index:1000;
-}
-
-/* Back */
-
-.back-btn{
-  position:fixed;
-  top:20px;
-  left:20px;
-  text-decoration:none;
-  color:#00ff88;
-  border:1px solid #00ff88;
-  padding:10px 16px;
-  border-radius:10px;
-  z-index:1000;
-}
-
-/* Layout */
-
-.hacker-shell{
-  width:min(1100px,95%);
-  margin:auto;
-  padding-top:100px;
-}
-
-/* Matrix */
-
-.matrix-rain{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:0.15;
-}
-
-.matrix-rain span{
+header::after {
+  content:"";
   position:absolute;
-  top:-100px;
-  color:#00ff88;
-  writing-mode:vertical-rl;
-  animation:fall linear infinite;
+  inset:0;
+  background:radial-gradient(circle,#ff4d4d20,transparent 70%);
+  animation: headerGlow 6s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
-.matrix-rain span:nth-child(1){
-  left:10%;
-  animation-duration:8s;
+@keyframes headerGlow {
+  0%{transform:scale(1);}
+  50%{transform:scale(1.2);}
+  100%{transform:scale(1);}
 }
 
-.matrix-rain span:nth-child(2){
-  left:25%;
-  animation-duration:10s;
+.profile{width:150px;height:150px;border-radius:50%;border:4px solid #8b0000;box-shadow:0 0 30px rgba(139,0,0,0.8);margin-bottom:20px;object-fit:cover;}
+header h1{font-size:2.6rem;color:#ffcccc;}
+header p{font-size:1.1rem;color:#f5dada;}
+
+/* Sections */
+section{
+  max-width:900px;
+  margin:40px auto;
+  padding:30px;
+  background:rgba(30,0,0,0.85);
+  border-radius:14px;
+  border:1px solid #400000;
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+  position: relative;
+  overflow: hidden;
 }
 
-.matrix-rain span:nth-child(3){
-  left:40%;
-  animation-duration:12s;
+section::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, rgba(255,77,77,0.15), rgba(255,153,153,0.1));
+  transform:translateX(-100%);
+  animation: slideOverlay 10s linear infinite;
+  pointer-events: none;
 }
 
-.matrix-rain span:nth-child(4){
-  left:55%;
-  animation-duration:9s;
+@keyframes slideOverlay {
+  0%{transform:translateX(-100%);}
+  50%{transform:translateX(100%);}
+  100%{transform:translateX(-100%);}
 }
 
-.matrix-rain span:nth-child(5){
-  left:75%;
-  animation-duration:11s;
+section h2{color:#ffb3b3;margin-bottom:20px;border-left:5px solid #8b0000;padding-left:12px;}
+
+/* =====================
+   Tables (Responsive)
+===================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #140000;
+  display: block;         /* allows scrolling on small screens */
+  overflow-x: auto;       /* horizontal scroll if needed */
+  -webkit-overflow-scrolling: touch; /* smooth scroll for iOS */
 }
 
-.matrix-rain span:nth-child(6){
-  left:90%;
-  animation-duration:7s;
+th, td {
+  padding: 14px;
+  text-align: center;
+  min-width: 120px;       /* prevent cells from collapsing too much */
 }
 
-@keyframes fall{
-  to{
-    transform:translateY(120vh);
+th {
+  background: #8b0000;
+}
+
+tr:nth-child(even) td {
+  background: #1f0000;
+}
+
+/* For contact table */
+.contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  display: block;         /* responsive scroll */
+  overflow-x: auto;
+}
+
+.contact-table th,
+.contact-table td {
+  padding: 12px;
+  border-bottom: 1px solid #400000;
+  text-align: left;
+  min-width: 140px;
+}
+
+.contact-table th {
+  background: #8b0000;
+  color: #fff;
+}
+
+.contact-table td {
+  background: #1a0000;
+}
+
+.contact-table a {
+  color: #ff9999;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.contact-table a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Small screen fix */
+@media screen and (max-width: 768px) {
+  table, .contact-table {
+    font-size: 0.9rem;
   }
 }
 
-/* Hero */
-
-.hacker-hero{
-  padding:60px;
-  background:#07150d;
-  border:1px solid #00ff88;
-  border-radius:25px;
-  margin-bottom:30px;
+/* Buttons */
+button{margin-top:20px;padding:12px 30px;border:none;border-radius:30px;cursor:pointer;background:linear-gradient(135deg,#8b0000,#ff4d4d);color:#fff;font-size:1rem;transition:0.3s ease;position:relative;z-index:1;}
+button::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:30px;
+  background:rgba(255,255,255,0.05);
+  opacity:0;
+  transition:0.3s;
 }
+button:hover::after{opacity:1;}
 
-.hacker-kicker{
-  letter-spacing:3px;
-  margin-bottom:15px;
-}
+/* Dark / Light Mode */
+body.light{background:#f4f4f4;color:#111;}
+body.light section{background:#fff;border:1px solid #ddd;}
+#theme-toggle{position:fixed;top:20px;right:20px;background:#8b0000;color:#fff;padding:10px 12px;border-radius:50%;cursor:pointer;z-index:1000;}
 
-.hacker-hero h1{
-  font-size:70px;
-  margin-bottom:20px;
-}
+/* Scroll To Top */
+#scrollTop{position:fixed;bottom:30px;right:30px;display:none;padding:12px 15px;border-radius:50%;background:linear-gradient(135deg,#8b0000,#ff4d4d);color:#fff;border:none;cursor:pointer;}
 
-.hacker-actions{
-  margin-top:25px;
-  display:flex;
-  gap:15px;
-}
+/* Scroll Reveal Animations */
+.fade{opacity:0;transform:translateY(50px);transition:0.9s ease;}
+.fade.show{opacity:1;transform:translateY(0);}
 
-.hacker-actions button{
-  padding:14px 24px;
-  border:none;
-  border-radius:12px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-#startHack{
-  background:#00ff88;
-  color:#000;
-}
-
-.ghost-btn{
-  background:transparent;
-  color:#00ff88;
-  border:1px solid #00ff88;
-}
-
-/* Terminal */
-
-.terminal-card{
-  border:1px solid #00ff88;
-  border-radius:25px;
-  overflow:hidden;
-  background:#03110a;
-  margin-bottom:30px;
-}
-
-.terminal-topbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:15px 20px;
-  background:#000;
-}
-
-.terminal-dots{
-  display:flex;
-  gap:8px;
-}
-
-.terminal-dots span{
-  width:12px;
-  height:12px;
-  border-radius:50%;
-}
-
-.terminal-dots span:nth-child(1){
-  background:red;
-}
-
-.terminal-dots span:nth-child(2){
-  background:yellow;
-}
-
-.terminal-dots span:nth-child(3){
-  background:lime;
-}
-
-.terminal-stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-}
-
-.terminal-stats div{
-  padding:15px;
-  border-top:1px solid #033;
-}
-
-.hacker-output{
-  min-height:400px;
-  max-height:60vh;
-  overflow:auto;
-  padding:25px;
-  background:#000;
-  color:#00ff88;
-  font-family:Consolas, monospace;
-  line-height:1.7;
-}
-
-/* Progress */
-
-.progress-wrap{
-  height:6px;
-  background:#000;
-}
-
-.progress-wrap span{
-  display:block;
-  width:40%;
-  height:100%;
-  background:#00ff88;
-  animation:move 2s linear infinite;
-}
-
-@keyframes move{
-  from{
-    transform:translateX(-100%);
-  }
-  to{
-    transform:translateX(300%);
-  }
-}
-
-/* Tips */
-
-.hacker-tips{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.hacker-tips article{
-  background:#07150d;
-  border:1px solid #00ff88;
-  border-radius:20px;
-  padding:25px;
-}
+/* Projects Section & EN/BN toggle */
+.projects{position:relative;overflow:hidden;}
+#identityText p{opacity:0;transform:translateY(30px);transition:0.8s ease-out;}
+#identityText.show p{opacity:1;transform:translateY(0);}
+#identityText.show p:nth-child(1){transition-delay:0.1s;}
+#identityText.show p:nth-child(2){transition-delay:0.3s;}
+#identityText.show p:nth-child(3){transition-delay:0.5s;}
+#identityText.show p:nth-child(4){transition-delay:0.7s;}
+#identityText.show p:nth-child(5){transition-delay:0.9s;}
+#langToggle{position:absolute;top:20px;right:20px;padding:8px 16px;border-radius:30px;background:linear-gradient(135deg,#8b0000,#ff4d4d);color:#fff;font-weight:bold;border:none;cursor:pointer;transition:0.3s ease;}
+#langToggle:hover{transform:scale(1.1) rotate(5deg);box-shadow:0 10px 20px rgba(255,77,77,0.6);}
 
 /* Footer */
+.footer{text-align:center;padding:25px 10px;margin-top:50px;background:#0b0000;border-top:1px solid #400000;}
+.footer p{color:#ffcccc;font-size:0.95rem;}
 
-.footer{
-  text-align:center;
-  padding:30px;
-  margin-top:30px;
+
+
+/* =====================
+   Back Button
+===================== */
+.back-btn {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  padding: 10px 24px;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  z-index: 2000;
+  transition: 0.3s ease;
 }
 
-/* Responsive */
-
-@media(max-width:768px){
-
-  .hacker-hero{
-    padding:30px;
-  }
-
-  .hacker-hero h1{
-    font-size:45px;
-  }
-
-  .terminal-stats{
-    grid-template-columns:1fr;
-  }
-
-  .hacker-tips{
-    grid-template-columns:1fr;
-  }
-
-  .hacker-actions{
-    flex-direction:column;
-  }
-
+.back-btn:hover {
+  background: #ffcc33;
+  color: #000;
+  transform: translateX(-5px);
 }
+
+/* =====================
+   Side Books Button
+===================== */
+/* =====================
+   Side Nav Buttons (Vertical Stack)
+===================== */
+.side-nav-container {
+  position: fixed;
+  top: 90px;           /* page top থেকে distance */
+  right: 25px;         /* right side distance */
+  display: flex;
+  flex-direction: column;  /* vertical stack */
+  gap: 15px;               /* button এর মধ্যে gap */
+  z-index: 2000;
+}
+
+.side-nav-container .side-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #ffcc33, #ff9933);
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+  transition: 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.side-nav-container .side-btn:hover {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 18px 45px rgba(255,204,51,0.9);
+}
+
+
+
+
+
+
+.books-table {
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+.books-table td {
+  text-align: left;
+  padding: 12px 15px;
+}
+
+.books-table tbody tr:hover {
+  background-color: #330000;
+}
+
+.books-table thead .section-title {
+  color: #ff4d4d;
+  font-size: 18px;
+  border-bottom: 2px solid #ff4d4d;
+}
+
+
+
+
+
+
+
+/* =====================
+   Expandable Side Menu
+===================== */
+.side-nav-container {
+  position: fixed;
+  top: 90px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 2000;
+}
+
+/* Main button */
+.side-main-btn {
+  padding: 12px 28px;
+  background: linear-gradient(135deg,#ff4d4d,#ff9999);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 30px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+  transition: 0.3s ease;
+}
+
+.side-main-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Sub buttons */
+.side-sub-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.side-sub-btn {
+  padding: 12px 28px;
+  background: linear-gradient(135deg,#ffcc33,#ff9933);
+  color: #000;
+  font-weight: 700;
+  border-radius: 30px;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: 0.3s ease;
+}
+
+.side-sub-btns.show .side-sub-btn {
+  opacity: 1;
+  transform: translateX(0);
+}
+
